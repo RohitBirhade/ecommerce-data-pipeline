@@ -138,13 +138,13 @@ if __name__ == "__main__":
     
     conn = db_conn()
     try:
-        # create_table(conn)
-        # table_exists(conn)
+        create_table(conn)
+        table_exists(conn)
         # verify_table(conn)
 
-        # df = read_file()
-        # load_data(conn, df)
+        df = read_file()
+        load_data(conn, df)
         validate_table_data(conn)
-
+        print(os.getcwd())
     finally:
         conn.close()
