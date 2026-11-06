@@ -1,10 +1,6 @@
-import pandas as pd
-import re
+import pyspark, pathlib
 
-
-location = r'data/online retail/Online Retail.xlsx'
-df = pd.read_excel(location)
-
-
-print('InvoiceNo and StockCode')
-print(df[['InvoiceNo', 'StockCode']].head())
+p=pathlib.Path(pyspark.__file__).parent
+print('PySpark:',pyspark.__version__) 
+print('JAR directory:',p/'jars') 
+print('\n'.join(x.name for x in (p/'jars').glob('hadoop-*.jar')))

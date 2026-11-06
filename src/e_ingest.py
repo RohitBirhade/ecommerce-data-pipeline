@@ -56,7 +56,7 @@ def verify_table(conn):
         print(cur.fetchall())
 
 # pandas has built-in contextmanager! no need to worry
-def read_file(filepath=r'data/online retail/Online Retail.xlsx'):
+def read_file(filepath=r'data/raw/Online Retail.xlsx'):
 
     df = pd.read_excel(filepath)
     # Normalize CustomerID to nullable string

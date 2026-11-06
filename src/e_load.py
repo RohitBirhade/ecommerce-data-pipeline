@@ -92,7 +92,7 @@ def upload_to_s3(output_path, bucket, s3_key):
 
 if __name__ == "__main__":
     
-    output_path = r"D:\Develop\BigData\Projects\ecommerce-data-pipeline\data\online_retail.csv"
+    output_path = r"D:\Develop\BigData\Projects\ecommerce-data-pipeline\data\load\online_retail.csv"
     bucket = "ecommerce-pipeline-raw-data-pipeline"
     s3_key = 'raw/online_retail/online_retail.csv'
     # export_to_csv(output_path=output_path)
