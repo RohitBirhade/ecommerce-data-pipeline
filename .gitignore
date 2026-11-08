@@ -1,12 +1,16 @@
-# DataSets
-/data/*
+# Datasets and generated data
+/data/
 
-# Virtual Env
-ecommerce-pipeline-env/*
+# Virtual environment
+/ecommerce-pipeline-env/
 
-# Python Cache
+# Python cache
 __pycache__/
 *.py[cod]
 
-# Environment variables /secrets
+# Environment variables / secrets
 .env
+.env.*
+
+# Local configuration
+/src/config.py
