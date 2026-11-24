@@ -17,6 +17,7 @@ def create_table(conn):
     )'''
 
     with closing(conn.cursor()) as cur:
+        cur.execute("CREATE SCHEMA IF NOT EXISTS raw")
         cur.execute(create_table)
         conn.commit()
 
@@ -31,7 +32,7 @@ def read_file(filepath):
     return df
 
 
-def load_data(conn, df):
+def load_data_to_raw(conn, df):
     
     try:
         with conn.cursor() as cur:

@@ -1,4 +1,24 @@
 import pandas as pd
+from pyspark.sql.functions import *
+
+def data_profilling(df):
+    
+    print('Data Profiling with PySpark:')
+    print(f"Total Rows Count: {df.count()}")
+    duplicate_records = ( df
+        .groupBy(*df.columns)
+        .count()
+        .filter('count > 1')
+        .agg(expr('sum(count - 1) as Duplicate_records'))
+    )
+    print("Duplicate count:")
+    duplicate_records.show()
+    # print(f"Duplicate Count: {df.count() - df.distinct().count()}")
+    print(f"Quantity with 0 or less count: {df.filter('quantity <= 0').count()}")
+    print(f"Unitprice with 0 or less count: {df.filter('unitprice <= 0').count()}")
+    print(f"Missing customerid count: {df.filter('customerid is NULL').count()}")
+    print(f"Missing description count: {df.filter('description is NULL').count()}")
+    print("Cancellation invoices count: ", (df.filter("invoiceno LIKE 'C%' or invoiceno LIKE 'c%'").count()))
 
 
 filepath = r'data/online retail/Online Retail.xlsx'
